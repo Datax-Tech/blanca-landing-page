@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacidade — Blanca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F7F4EF;
+      --ink: #1A1714;
+      --stone: #8C8680;
+      --accent: #2D3A2E;
+      --rule: rgba(26,23,20,0.12);
+    }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 48px;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    .bg-hex {
+      position: fixed;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 480px;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .logo svg { width: 28px; height: 32px; }
+    .wordmark {
+      font-size: 16px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .back {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back:hover { color: var(--ink); }
+
+    main {
+      max-width: 540px;
+    }
+    .page-label {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .last-updated {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--stone);
+      margin-bottom: 56px;
+    }
+
+    .block {
+      border-top: 1px solid var(--rule);
+      padding: 36px 0;
+    }
+    .block h2 {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .block p {
+      font-size: 16px;
+      color: var(--stone);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .block p:last-child { margin-bottom: 0; }
+    .block ul {
+      font-size: 16px;
+      color: var(--stone);
+      line-height: 1.8;
+      padding-left: 18px;
+      margin-bottom: 12px;
+    }
+    .block ul li { margin-bottom: 4px; }
+    .block a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .block a:hover { border-color: var(--ink); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--stone);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 28px 24px; }
+      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="bg-hex" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+    <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <header>
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+        <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+        <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="wordmark">Blanca</span>
+    </a>
+    <a href="index.html" class="back">← Voltar</a>
+  </header>
+
+  <main>
+    <p class="page-label">Legal</p>
+    <h1>Política de<br/><em>Privacidade</em></h1>
+    <p class="last-updated">Última atualização: Abril de 2026</p>
+
+    <div class="block">
+      <h2>Introdução</h2>
+      <p>A Blanca está comprometida com a proteção das suas informações pessoais. Esta política explica como coletamos, usamos e protegemos seus dados ao utilizar o aplicativo e serviços Blanca.</p>
+    </div>
+
+    <div class="block">
+      <h2>Informações que Coletamos</h2>
+      <ul>
+        <li><strong>Dados de conta:</strong> nome, e-mail e foto de perfil.</li>
+        <li><strong>Dados de uso:</strong> interações com o app e conteúdo publicado.</li>
+        <li><strong>Localização:</strong> aproximada, apenas com sua permissão.</li>
+        <li><strong>Dados de pagamento:</strong> processados por terceiros seguros; não armazenamos dados de cartão.</li>
+        <li><strong>Dados do dispositivo:</strong> modelo e versão do sistema para suporte técnico.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>Como Usamos Seus Dados</h2>
+      <ul>
+        <li>Fornecer e melhorar o app e os serviços Blanca.</li>
+        <li>Personalizar sua experiência e sugerir eventos relevantes.</li>
+        <li>Processar assinaturas, pagamentos e cashback.</li>
+        <li>Garantir a segurança da comunidade.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h2>Compartilhamento</h2>
+      <p>Não vendemos seus dados. Podemos compartilhá-los apenas com prestadores de serviço essenciais à operação do app, organizadores de eventos quando você se inscreve, e autoridades legais quando exigido por lei.</p>
+    </div>
+
+    <div class="block">
+      <h2>Seus Direitos</h2>
+      <p>Você pode acessar, corrigir ou solicitar a exclusão dos seus dados a qualquer momento. Entre em contato pelo e-mail <a href="mailto:datax.atendimento@gmail.com">datax.atendimento@gmail.com</a>.</p>
+    </div>
+
+    <div class="block">
+      <h2>Menores de Idade</h2>
+      <p>O Blanca não é direcionado a menores de 13 anos e não coleta intencionalmente dados de crianças.</p>
+    </div>
+
+    <div class="block">
+      <h2>Contato</h2>
+      <p>Dúvidas sobre privacidade: <a href="mailto:datax.atendimento@gmail.com">datax.atendimento@gmail.com</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacidade</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Blanca</span>
+  </footer>
+
+</body>
+</html>

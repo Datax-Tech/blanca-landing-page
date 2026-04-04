@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanca</title>
+  <meta name="description" content="Blanca é sobre colecionar horizontes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F7F4EF;
+      --ink: #1A1714;
+      --stone: #8C8680;
+      --accent: #2D3A2E;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 48px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.1s forwards;
+    }
+    header svg { width: 28px; height: 32px; }
+    .wordmark {
+      font-size: 16px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .tagline {
+      font-size: clamp(42px, 6vw, 88px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      max-width: 14ch;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+    .tagline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .soon {
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--stone);
+      opacity: 0;
+      animation: fadeUp 1s 0.6s forwards;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.9s forwards;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--stone);
+    }
+
+    .bg-hex {
+      position: fixed;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 480px;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 28px 24px; }
+      .tagline { font-size: clamp(36px, 10vw, 56px); }
+      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .bg-hex { width: 280px; right: -40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="bg-hex" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+    <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
+    <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <header>
+    <svg viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+      <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
+      <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span class="wordmark">Blanca</span>
+  </header>
+
+  <main>
+    <h1 class="tagline">
+      Blanca é sobre colecionar <em>horizontes.</em>
+    </h1>
+    <p class="soon">Em breve</p>
+  </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacidade</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Blanca</span>
+  </footer>
+
+</body>
+</html>
