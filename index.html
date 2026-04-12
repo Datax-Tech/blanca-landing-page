@@ -75,13 +75,27 @@
       color: var(--accent);
     }
 
+    .about {
+      max-width: 620px;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+    .about-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
     .soon {
       font-size: 13px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--stone);
       opacity: 0;
-      animation: fadeUp 1s 0.6s forwards;
+      animation: fadeUp 1s 0.7s forwards;
     }
 
     footer {
@@ -105,6 +119,18 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--ink); }
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .footer-company {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
     .footer-copy {
       font-size: 11px;
       letter-spacing: 0.1em;
@@ -167,14 +193,27 @@
     <h1 class="tagline">
       Blanca é sobre colecionar <em>horizontes.</em>
     </h1>
-    <p class="soon">Em breve</p>
+
+    <section class="about">
+      <p class="about-text">
+        A Blanca é uma rede social para aventureiros e amantes da natureza. Registre suas experiências ao ar livre — trilhas, escaladas, travessias, bike, surfe e mais. Acompanhe seus quilômetros, conquiste badges, suba no ranking e conecte-se com uma comunidade que compartilha a mesma paixão por explorar o mundo.
+      </p>
+      <p class="about-text">
+        Descubra eventos curados pela Blanca Series, siga aventureiros inspiradores, e compartilhe suas conquistas com fotos e relatos de cada jornada.
+      </p>
+    </section>
+
+    <p class="soon">Em breve na App Store e Google Play</p>
   </main>
 
   <footer>
     <ul class="footer-links">
       <li><a href="privacy.html">Privacidade</a></li>
     </ul>
-    <span class="footer-copy">&copy; 2026 Blanca</span>
+    <div class="footer-right">
+      <span class="footer-company">Desenvolvido por DATAX TECNOLOGIA LTDA</span>
+      <span class="footer-copy">&copy; 2026 Blanca</span>
+    </div>
   </footer>
 
 </body>
