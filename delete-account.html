@@ -43,6 +43,18 @@
     }
     .wordmark a { color: var(--ink); text-decoration: none; }
 
+    .back-link {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--ink); }
+
     h1 {
       font-size: clamp(28px, 4vw, 42px);
       font-weight: 300;
@@ -159,6 +171,8 @@
       </svg>
       <span class="wordmark"><a href="index.html">Blanca</a></span>
     </header>
+
+    <a href="index.html" class="back-link">← Voltar</a>
 
     <div class="content">
       <h1>Exclusão de Conta e Dados</h1>
