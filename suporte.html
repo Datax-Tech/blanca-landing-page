@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacidade — Sabina</title>
+  <title>Suporte — Sabina</title>
+  <meta name="description" content="Canais oficiais de suporte e contato da Sabina." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
@@ -91,16 +92,17 @@
       margin-bottom: 12px;
     }
     h1 em { font-style: italic; color: var(--accent); }
-    .last-updated {
-      font-size: 12px;
-      letter-spacing: 0.1em;
+    .lede {
+      font-size: 18px;
       color: var(--stone);
+      line-height: 1.6;
       margin-bottom: 56px;
+      max-width: 480px;
     }
 
     .block {
       border-top: 1px solid var(--rule);
-      padding: 36px 0;
+      padding: 32px 0;
     }
     .block h2 {
       font-size: 20px;
@@ -115,14 +117,6 @@
       margin-bottom: 12px;
     }
     .block p:last-child { margin-bottom: 0; }
-    .block ul {
-      font-size: 16px;
-      color: var(--stone);
-      line-height: 1.8;
-      padding-left: 18px;
-      margin-bottom: 12px;
-    }
-    .block ul li { margin-bottom: 4px; }
     .block a {
       color: var(--ink);
       text-decoration: none;
@@ -130,6 +124,50 @@
       transition: border-color 0.2s;
     }
     .block a:hover { border-color: var(--ink); }
+
+    .channel {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 14px 0;
+    }
+    .channel-label {
+      width: 100px;
+      flex-shrink: 0;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .channel-value {
+      font-size: 18px;
+      color: var(--ink);
+    }
+    .channel-value a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .channel-value a:hover { border-color: var(--ink); }
+
+    .company-block {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .company-name {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .company-detail {
+      font-size: 14px;
+      color: var(--stone);
+      line-height: 1.7;
+    }
 
     footer {
       display: flex;
@@ -140,6 +178,7 @@
       display: flex;
       gap: 28px;
       list-style: none;
+      flex-wrap: wrap;
     }
     .footer-links a {
       font-size: 11px;
@@ -158,6 +197,8 @@
 
     @media (max-width: 600px) {
       body { padding: 28px 24px; }
+      .channel { flex-direction: column; gap: 4px; align-items: flex-start; }
+      .channel-label { width: auto; }
       footer { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
   </style>
@@ -191,63 +232,59 @@
   </header>
 
   <main>
-    <p class="page-label">Legal</p>
-    <h1>Política de<br/><em>Privacidade</em></h1>
-    <p class="last-updated">Última atualização: Abril de 2026</p>
+    <p class="page-label">Suporte</p>
+    <h1>Fale com a <em>Sabina.</em></h1>
+    <p class="lede">Estamos aqui pra ajudar com qualquer dúvida sobre o aplicativo, sua conta ou seus pagamentos. Respondemos em até 2 dias úteis.</p>
 
     <div class="block">
-      <h2>Introdução</h2>
-      <p>A Sabina está comprometida com a proteção das suas informações pessoais. Esta política explica como coletamos, usamos e protegemos seus dados ao utilizar o aplicativo e serviços Sabina.</p>
+      <h2>Canais de atendimento</h2>
+
+      <div class="channel">
+        <span class="channel-label">E-mail</span>
+        <span class="channel-value"><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></span>
+      </div>
+
+      <div class="channel">
+        <span class="channel-label">Telefone</span>
+        <span class="channel-value"><a href="tel:+5521972847653">+55 21 97284-7653</a></span>
+      </div>
+
+      <div class="channel">
+        <span class="channel-label">WhatsApp</span>
+        <span class="channel-value"><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">+55 21 97284-7653</a></span>
+      </div>
     </div>
 
     <div class="block">
-      <h2>Informações que Coletamos</h2>
-      <ul>
-        <li><strong>Dados de conta:</strong> nome, e-mail e foto de perfil.</li>
-        <li><strong>Dados de uso:</strong> interações com o app e conteúdo publicado.</li>
-        <li><strong>Localização:</strong> aproximada, apenas com sua permissão.</li>
-        <li><strong>Dados de pagamento:</strong> processados por terceiros seguros; não armazenamos dados de cartão.</li>
-        <li><strong>Dados do dispositivo:</strong> modelo e versão do sistema para suporte técnico.</li>
-      </ul>
+      <h2>O que podemos resolver</h2>
+      <p>Dúvidas sobre o app · Problemas de login ou cadastro · Cancelamento de assinatura ou eventos · Reembolsos · Solicitação de exclusão de conta · Reportar bugs ou comportamento inadequado · Privacidade e proteção de dados.</p>
     </div>
 
     <div class="block">
-      <h2>Como Usamos Seus Dados</h2>
-      <ul>
-        <li>Fornecer e melhorar o app e os serviços Sabina.</li>
-        <li>Personalizar sua experiência e sugerir eventos relevantes.</li>
-        <li>Processar assinaturas, pagamentos e cashback.</li>
-        <li>Garantir a segurança da comunidade.</li>
-      </ul>
+      <h2>Recursos rápidos</h2>
+      <p>
+        <a href="privacy.html">Política de Privacidade</a> ·
+        <a href="delete-account.html">Excluir minha conta</a> ·
+        <a href="csae-policy.html">Política CSAE</a>
+      </p>
     </div>
 
-    <div class="block">
-      <h2>Compartilhamento</h2>
-      <p>Não vendemos seus dados. Podemos compartilhá-los apenas com prestadores de serviço essenciais à operação do app, organizadores de eventos quando você se inscreve, e autoridades legais quando exigido por lei.</p>
-    </div>
-
-    <div class="block">
-      <h2>Seus Direitos</h2>
-      <p>Você pode acessar, corrigir ou solicitar a exclusão dos seus dados a qualquer momento. Entre em contato pelo e-mail <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a>.</p>
-    </div>
-
-    <div class="block">
-      <h2>Menores de Idade</h2>
-      <p>O Sabina não é direcionado a menores de 13 anos e não coleta intencionalmente dados de crianças.</p>
-    </div>
-
-    <div class="block">
-      <h2>Contato</h2>
-      <p>Dúvidas sobre privacidade: <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></p>
+    <div class="company-block">
+      <p class="company-name">DATAX TECNOLOGIA LTDA</p>
+      <p class="company-detail">
+        CNPJ 47.237.133/0001-40<br/>
+        Rua Uruaçu, 432 — Rio de Janeiro/RJ<br/>
+        CEP 21921-600
+      </p>
     </div>
   </main>
 
   <footer>
     <ul class="footer-links">
-      <li><a href="suporte.html">Suporte</a></li>
       <li><a href="privacy.html">Privacidade</a></li>
       <li><a href="delete-account.html">Exclusão de conta</a></li>
       <li><a href="csae-policy.html">CSAE</a></li>
+      <li><a href="suporte.html">Suporte</a></li>
     </ul>
     <span class="footer-copy">&copy; 2026 Sabina</span>
   </footer>

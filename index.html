@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blanca</title>
-  <meta name="description" content="Blanca é sobre colecionar horizontes." />
+  <title>Sabina</title>
+  <meta name="description" content="Sabina é sobre colecionar horizontes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
@@ -98,6 +98,33 @@
       animation: fadeUp 1s 0.7s forwards;
     }
 
+    .contact {
+      max-width: 620px;
+      opacity: 0;
+      animation: fadeUp 1s 0.6s forwards;
+    }
+    .contact-label {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 14px;
+    }
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 32px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .contact-list a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,23,20,0.18);
+      transition: border-color 0.2s;
+    }
+    .contact-list a:hover { border-color: var(--ink); }
+
     footer {
       display: flex;
       justify-content: space-between;
@@ -186,35 +213,46 @@
       <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
       <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
     </svg>
-    <span class="wordmark">Blanca</span>
+    <span class="wordmark">Sabina</span>
   </header>
 
   <main>
     <h1 class="tagline">
-      Blanca é sobre colecionar <em>horizontes.</em>
+      Sabina é sobre colecionar <em>horizontes.</em>
     </h1>
 
     <section class="about">
       <p class="about-text">
-        A Blanca é uma rede social para aventureiros e amantes da natureza. Registre suas experiências ao ar livre — trilhas, escaladas, travessias, bike, surfe e mais. Acompanhe seus quilômetros, conquiste badges, suba no ranking e conecte-se com uma comunidade que compartilha a mesma paixão por explorar o mundo.
+        A Sabina é uma rede social para aventureiros e amantes da natureza. Registre suas experiências ao ar livre — trilhas, escaladas, travessias, bike, surfe e mais. Acompanhe seus quilômetros, conquiste badges, suba no ranking e conecte-se com uma comunidade que compartilha a mesma paixão por explorar o mundo.
       </p>
       <p class="about-text">
-        Descubra eventos curados pela Blanca Series, siga aventureiros inspiradores, e compartilhe suas conquistas com fotos e relatos de cada jornada.
+        Descubra eventos curados pela Sabina Series, siga aventureiros inspiradores, e compartilhe suas conquistas com fotos e relatos de cada jornada.
       </p>
     </section>
 
     <p class="soon">Em breve na App Store e Google Play</p>
+
+    <section class="contact">
+      <p class="contact-label">Contato</p>
+      <div class="contact-list">
+        <span><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></span>
+        <span><a href="tel:+5521972847653">+55 21 97284-7653</a></span>
+        <span><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">WhatsApp</a></span>
+        <span><a href="suporte.html">Suporte</a></span>
+      </div>
+    </section>
   </main>
 
   <footer>
     <ul class="footer-links">
+      <li><a href="suporte.html">Suporte</a></li>
       <li><a href="privacy.html">Privacidade</a></li>
       <li><a href="delete-account.html">Exclusão de conta</a></li>
       <li><a href="csae-policy.html">Política CSAE</a></li>
     </ul>
     <div class="footer-right">
-      <span class="footer-company">Desenvolvido por DATAX TECNOLOGIA LTDA</span>
-      <span class="footer-copy">&copy; 2026 Blanca</span>
+      <span class="footer-company">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40</span>
+      <span class="footer-copy">&copy; 2026 Sabina</span>
     </div>
   </footer>
 
