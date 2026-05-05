@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Suporte — Sabina</title>
-  <meta name="description" content="Canais oficiais de suporte e contato da Sabina." />
+  <title>Sobre — Sabina</title>
+  <meta name="description" content="Quem somos, missão e valores da Sabina." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
@@ -76,7 +76,7 @@
     .back:hover { color: var(--ink); }
 
     main {
-      max-width: 540px;
+      max-width: 620px;
     }
     .page-label {
       font-size: 11px;
@@ -86,74 +86,82 @@
       margin-bottom: 24px;
     }
     h1 {
-      font-size: clamp(36px, 5vw, 60px);
+      font-size: clamp(40px, 6vw, 72px);
       font-weight: 300;
       line-height: 1.05;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
     }
     h1 em { font-style: italic; color: var(--accent); }
+
     .lede {
-      font-size: 18px;
-      color: var(--stone);
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--ink);
       line-height: 1.6;
       margin-bottom: 56px;
-      max-width: 480px;
+      max-width: 520px;
     }
 
     .block {
       border-top: 1px solid var(--rule);
-      padding: 32px 0;
+      padding: 36px 0;
+    }
+    .block-label {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 20px;
     }
     .block h2 {
-      font-size: 20px;
+      font-size: 28px;
       font-weight: 300;
-      letter-spacing: 0.04em;
+      line-height: 1.2;
       margin-bottom: 14px;
+      letter-spacing: -0.005em;
     }
+    .block h2 em { font-style: italic; color: var(--accent); }
     .block p {
-      font-size: 16px;
-      color: var(--stone);
-      line-height: 1.8;
+      font-size: 17px;
+      color: var(--ink);
+      line-height: 1.7;
       margin-bottom: 12px;
     }
     .block p:last-child { margin-bottom: 0; }
-    .block a {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      transition: border-color 0.2s;
-    }
-    .block a:hover { border-color: var(--ink); }
-
-    .channel {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding: 14px 0;
-    }
-    .channel-label {
-      width: 100px;
-      flex-shrink: 0;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .block .muted {
       color: var(--stone);
     }
-    .channel-value {
-      font-size: 18px;
-      color: var(--ink);
+
+    .values {
+      list-style: none;
+      counter-reset: vlist;
     }
-    .channel-value a {
-      color: var(--ink);
-      text-decoration: none;
+    .values li {
+      counter-increment: vlist;
+      padding: 22px 0;
       border-bottom: 1px solid var(--rule);
-      transition: border-color 0.2s;
+      display: flex;
+      gap: 24px;
+      align-items: baseline;
     }
-    .channel-value a:hover { border-color: var(--ink); }
+    .values li:last-child { border-bottom: none; }
+    .values li::before {
+      content: counter(vlist, decimal-leading-zero);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--stone);
+      flex-shrink: 0;
+      width: 36px;
+    }
+    .values li span {
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
 
     .company-block {
-      margin-top: 32px;
-      padding-top: 32px;
+      margin-top: 36px;
+      padding-top: 36px;
       border-top: 1px solid var(--rule);
     }
     .company-name {
@@ -168,6 +176,13 @@
       color: var(--stone);
       line-height: 1.7;
     }
+    .company-detail a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .company-detail a:hover { border-color: var(--ink); }
 
     footer {
       display: flex;
@@ -197,8 +212,8 @@
 
     @media (max-width: 600px) {
       body { padding: 28px 24px; }
-      .channel { flex-direction: column; gap: 4px; align-items: flex-start; }
-      .channel-label { width: auto; }
+      .values li { flex-direction: column; gap: 6px; }
+      .values li::before { width: auto; }
       footer { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
   </style>
@@ -232,41 +247,29 @@
   </header>
 
   <main>
-    <p class="page-label">Suporte</p>
-    <h1>Fale com a <em>Sabina.</em></h1>
-    <p class="lede">Estamos aqui pra ajudar com qualquer dúvida sobre o aplicativo, sua conta ou seus pagamentos. Respondemos em até 2 dias úteis.</p>
+    <p class="page-label">Sobre nós</p>
+    <h1>Sabina é sobre colecionar <em>horizontes.</em></h1>
+    <p class="lede">Somos uma comunidade brasileira de aventureiros e amantes da natureza. Conectamos pessoas que escolheram sair do cotidiano e viver experiências reais ao ar livre — trilhas, escaladas, travessias, bike, surfe e muito mais.</p>
 
     <div class="block">
-      <h2>Canais de atendimento</h2>
-
-      <div class="channel">
-        <span class="channel-label">E-mail</span>
-        <span class="channel-value"><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></span>
-      </div>
-
-      <div class="channel">
-        <span class="channel-label">Telefone</span>
-        <span class="channel-value"><a href="tel:+5521972847653">+55 21 97284-7653</a></span>
-      </div>
-
-      <div class="channel">
-        <span class="channel-label">WhatsApp</span>
-        <span class="channel-value"><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">+55 21 97284-7653</a></span>
-      </div>
+      <p class="block-label">Missão</p>
+      <h2>Gerar experiências <em>extraordinárias</em> através da coleção de horizontes.</h2>
     </div>
 
     <div class="block">
-      <h2>O que podemos resolver</h2>
-      <p>Dúvidas sobre o app · Problemas de login ou cadastro · Cancelamento de assinatura ou eventos · Reembolsos · Solicitação de exclusão de conta · Reportar bugs ou comportamento inadequado · Privacidade e proteção de dados.</p>
+      <p class="block-label">Valores</p>
+      <ol class="values">
+        <li><span>Curadoria absurda. Nada é genérico.</span></li>
+        <li><span>Pura Vida. Estouramos a bolha do cotidiano.</span></li>
+        <li><span>Não somos viagem. Somos momento.</span></li>
+        <li><span>Cuidar da natureza é cuidar da gente.</span></li>
+      </ol>
     </div>
 
     <div class="block">
-      <h2>Recursos rápidos</h2>
-      <p>
-        <a href="privacy.html">Política de Privacidade</a> ·
-        <a href="delete-account.html">Excluir minha conta</a> ·
-        <a href="csae-policy.html">Política CSAE</a>
-      </p>
+      <p class="block-label">A empresa</p>
+      <p>O aplicativo Sabina é desenvolvido e operado pela <strong>DATAX TECNOLOGIA LTDA</strong>, com sede no Rio de Janeiro.</p>
+      <p class="muted">Estamos comprometidos com privacidade, segurança e uma comunidade saudável. Para qualquer dúvida, sugestão ou contato, fale com a gente — respondemos a todos.</p>
     </div>
 
     <div class="company-block">
@@ -274,18 +277,19 @@
       <p class="company-detail">
         CNPJ 47.237.133/0001-40<br/>
         Rua Uruaçu, 432 — Rio de Janeiro/RJ<br/>
-        CEP 21921-600
+        CEP 21921-600<br/>
+        <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a> ·
+        <a href="tel:+5521972847653">+55 21 97284-7653</a>
       </p>
     </div>
   </main>
 
   <footer>
     <ul class="footer-links">
+      <li><a href="suporte.html">Suporte</a></li>
       <li><a href="privacy.html">Privacidade</a></li>
       <li><a href="delete-account.html">Exclusão de conta</a></li>
       <li><a href="csae-policy.html">CSAE</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="suporte.html">Suporte</a></li>
     </ul>
     <span class="footer-copy">&copy; 2026 Sabina</span>
   </footer>
