@@ -3,20 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sabina</title>
-  <meta name="description" content="Sabina é sobre colecionar horizontes." />
+  <title>Sabina — colecionar horizontes</title>
+  <meta name="description" content="Sabina é sobre colecionar horizontes. Existe uma vida que pulsa lá fora." />
+  <link rel="icon" href="assets/logo-dark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      /* Cores base */
       --cream: #F7F4EF;
+      --cream-soft: #EFEAE0;
       --ink: #1A1714;
       --stone: #8C8680;
-      --accent: #2D3A2E;
+      --rule: rgba(26,23,20,0.08);
+
+      /* Gradiente da marca */
+      --pink: #E94B7C;
+      --magenta: #B6418E;
+      --purple: #6B3FA0;
+      --indigo: #3D52B3;
+      --night: #0F1024;
+      --night-soft: #181A33;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--cream);
@@ -24,254 +37,533 @@
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 48px;
+      overflow-x: hidden;
     }
 
+    /* Subtle film grain across whole page */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 100;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      z-index: 200;
+      opacity: 0.04;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    header {
+    /* ─── Layout helpers ──────────────────────────────────────────── */
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+    }
+
+    section {
+      position: relative;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(233,75,124,0.18), transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(61,82,179,0.22), transparent 55%),
+        linear-gradient(180deg, var(--night) 0%, var(--night-soft) 100%);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px clamp(24px, 5vw, 64px);
+      overflow: hidden;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image:
+        linear-gradient(transparent 95%, rgba(255,255,255,0.6) 95%),
+        linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.6) 95%);
+      background-size: 80px 80px;
+    }
+
+    .hero-top {
       display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
       opacity: 0;
       animation: fadeIn 0.8s 0.1s forwards;
     }
-    header svg { width: 28px; height: 32px; }
-    .wordmark {
-      font-size: 16px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
+
+    .hero-logo-mark {
+      height: 28px;
+      width: auto;
     }
 
-    main {
+    .nav {
       display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .tagline {
-      font-size: clamp(42px, 6vw, 88px);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      max-width: 14ch;
-      opacity: 0;
-      animation: fadeUp 1s 0.3s forwards;
-    }
-    .tagline em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .about {
-      max-width: 620px;
-      opacity: 0;
-      animation: fadeUp 1s 0.5s forwards;
-    }
-    .about-lead {
-      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-style: italic;
-      font-size: clamp(20px, 2.8vw, 26px);
-      font-weight: 300;
-      line-height: 1.4;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-    .about-text {
-      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: clamp(18px, 2.5vw, 22px);
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-
-    .soon {
-      font-size: 13px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--stone);
-      opacity: 0;
-      animation: fadeUp 1s 0.7s forwards;
-    }
-
-    .signoff {
-      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-style: italic;
-      font-size: 16px;
-      color: var(--ink);
-      margin-top: 6px;
-      opacity: 0;
-      animation: fadeUp 1s 0.85s forwards;
-    }
-
-    .contact {
-      max-width: 620px;
-      opacity: 0;
-      animation: fadeUp 1s 0.6s forwards;
-    }
-    .contact-label {
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--stone);
-      margin-bottom: 14px;
-    }
-    .contact-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 32px;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-    .contact-list a {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(26,23,20,0.18);
-      transition: border-color 0.2s;
-    }
-    .contact-list a:hover { border-color: var(--ink); }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      opacity: 0;
-      animation: fadeIn 0.8s 0.9s forwards;
-    }
-    .footer-links {
-      display: flex;
-      gap: 28px;
+      gap: clamp(18px, 3vw, 36px);
       list-style: none;
     }
-    .footer-links a {
+    .nav a {
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--stone);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-right {
+    .nav a:hover { color: #FFFFFF; }
+
+    .hero-center {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1100px;
+      position: relative;
+      z-index: 2;
     }
-    .footer-company {
-      font-size: 10px;
-      letter-spacing: 0.12em;
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+    .eyebrow .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pink);
+      margin-right: 10px;
+      vertical-align: middle;
+      box-shadow: 0 0 16px var(--pink);
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 9vw, 144px);
+      font-weight: 200;
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1.2s 0.5s forwards;
+    }
+    .hero-title .gradient {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--magenta) 35%, var(--purple) 65%, var(--indigo) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-lead {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(17px, 1.8vw, 22px);
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      opacity: 0;
+      animation: fadeUp 1s 0.8s forwards;
+    }
+
+    .hero-foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 0.8s 1.2s forwards;
+    }
+
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .scroll-indicator::after {
+      content: '';
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.5), transparent);
+      animation: scrollPulse 2.4s ease-in-out infinite;
+    }
+
+    .hero-soon {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ─── MANIFESTO ───────────────────────────────────────────────── */
+    .manifesto {
+      padding: clamp(80px, 14vh, 160px) 0;
+      background: var(--cream);
+    }
+
+    .manifesto-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 40px;
+    }
+
+    .manifesto-text {
+      font-size: clamp(32px, 5vw, 76px);
+      font-weight: 200;
+      line-height: 1.1;
+      letter-spacing: -0.018em;
+      max-width: 1100px;
       color: var(--ink);
     }
-    .footer-copy {
-      font-size: 11px;
-      letter-spacing: 0.1em;
+    .manifesto-text em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 300;
+    }
+    .manifesto-text .muted {
       color: var(--stone);
     }
 
-    .bg-hex {
-      position: fixed;
-      right: -60px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 480px;
-      opacity: 0.04;
-      pointer-events: none;
+    /* ─── VALORES ─────────────────────────────────────────────────── */
+    .values {
+      padding: clamp(60px, 10vh, 120px) 0 clamp(80px, 14vh, 160px);
+      background: var(--cream);
+      border-top: 1px solid var(--rule);
     }
 
+    .values-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 56px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .value {
+      background: var(--cream);
+      padding: 36px 32px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+    .value:hover {
+      background: var(--cream-soft);
+    }
+    .value-num {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      color: var(--stone);
+      font-weight: 500;
+    }
+    .value-text {
+      font-size: clamp(20px, 1.8vw, 24px);
+      font-weight: 300;
+      line-height: 1.35;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+    }
+    .value-text strong {
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ─── OUTRO ───────────────────────────────────────────────────── */
+    .outro {
+      padding: clamp(80px, 14vh, 160px) 0;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(107,63,160,0.16), transparent 55%),
+        radial-gradient(ellipse at 0% 100%, rgba(233,75,124,0.12), transparent 55%),
+        var(--night);
+      color: #FFFFFF;
+    }
+
+    .outro-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 28px;
+    }
+
+    .outro-title {
+      font-size: clamp(36px, 6vw, 84px);
+      font-weight: 200;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .outro-title em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--pink), var(--magenta), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 300;
+    }
+
+    .outro-sub {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 56px;
+    }
+
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 920px;
+      margin-bottom: 80px;
+    }
+
+    .channel {
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(4px);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .channel:hover {
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    .channel-label {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 12px;
+    }
+    .channel-value a {
+      color: #FFFFFF;
+      font-size: 17px;
+      text-decoration: none;
+      letter-spacing: -0.005em;
+    }
+    .channel-value a:hover {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .signoff {
+      font-style: italic;
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.005em;
+    }
+    .signoff::before {
+      content: '— ';
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      padding: 32px clamp(24px, 5vw, 64px);
+      background: var(--night);
+      color: rgba(255,255,255,0.55);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-row {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links {
+      display: flex;
+      gap: clamp(14px, 2.4vw, 28px);
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer-meta {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(0.7); transform-origin: top; }
+      50%      { opacity: 1; transform: scaleY(1); }
+    }
 
-    @media (max-width: 600px) {
-      body { padding: 28px 24px; }
-      .tagline { font-size: clamp(36px, 10vw, 56px); }
-      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
-      .bg-hex { width: 280px; right: -40px; }
+    /* ─── RESPONSIVE ──────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .nav { display: none; }
+      .hero { padding: 24px 24px 48px; }
+      .hero-foot { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+      .scroll-indicator { flex-direction: row; }
+      .scroll-indicator::after {
+        height: 1px;
+        width: 48px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.5), transparent);
+      }
     }
   </style>
 </head>
 <body>
 
-  <svg class="bg-hex" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-    <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-  </svg>
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-bg-shape"></div>
 
-  <header>
-    <svg viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
-      <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-      <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-    </svg>
-    <span class="wordmark">Sabina</span>
-  </header>
+    <div class="hero-top">
+      <img src="assets/logo-white.png" alt="Sabina" class="hero-logo-mark" />
+      <ul class="nav">
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
 
-  <main>
-    <h1 class="tagline">
-      Sabina é sobre colecionar <em>horizontes.</em>
-    </h1>
+    <div class="hero-center">
+      <p class="eyebrow"><span class="dot"></span>Em breve</p>
+      <h1 class="hero-title">Colecionar<br/><span class="gradient">horizontes.</span></h1>
+      <p class="hero-lead">Existe uma vida que pulsa lá fora. A Sabina existe pra te lembrar disso — e te levar até lá.</p>
+    </div>
 
-    <section class="about">
-      <p class="about-lead">Existe uma vida que pulsa lá fora.</p>
-      <p class="about-text">
-        Sabina existe para gerar experiências extraordinárias através da coleção de horizontes. Curadoria absurda, nada genérico. Não somos viagem — somos momento.
+    <div class="hero-foot">
+      <p class="hero-soon">App Store · Google Play · 2026</p>
+      <a href="#manifesto" class="scroll-indicator">Role</a>
+    </div>
+  </section>
+
+  <!-- ════════ MANIFESTO ════════ -->
+  <section class="manifesto" id="manifesto">
+    <div class="wrap">
+      <p class="manifesto-eyebrow">Manifesto</p>
+      <p class="manifesto-text">
+        A Sabina existe pra <em>gerar experiências extraordinárias</em> através da coleção de horizontes. <span class="muted">Curadoria absurda. Nada genérico. Não somos viagem — somos <em>momento.</em></span>
       </p>
-    </section>
+    </div>
+  </section>
 
-    <p class="soon">Em breve.</p>
-    <p class="signoff">— Pura Vida.</p>
-
-    <section class="contact">
-      <p class="contact-label">Contato</p>
-      <div class="contact-list">
-        <span><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></span>
-        <span><a href="tel:+5521972847653">+55 21 97284-7653</a></span>
-        <span><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">WhatsApp</a></span>
-        <span><a href="suporte.html">Suporte</a></span>
+  <!-- ════════ VALORES ════════ -->
+  <section class="values">
+    <div class="wrap">
+      <p class="values-eyebrow">Valores</p>
+      <div class="values-grid">
+        <article class="value">
+          <span class="value-num">01</span>
+          <p class="value-text"><strong>Curadoria absurda.</strong> Nada é genérico.</p>
+        </article>
+        <article class="value">
+          <span class="value-num">02</span>
+          <p class="value-text"><strong>Pura Vida.</strong> Estouramos a bolha do cotidiano.</p>
+        </article>
+        <article class="value">
+          <span class="value-num">03</span>
+          <p class="value-text"><strong>Não somos viagem.</strong> Somos momento.</p>
+        </article>
+        <article class="value">
+          <span class="value-num">04</span>
+          <p class="value-text"><strong>Cuidar da natureza</strong> é cuidar da gente.</p>
+        </article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- ════════ OUTRO + CONTATO ════════ -->
+  <section class="outro" id="contato">
+    <div class="wrap">
+      <p class="outro-eyebrow">Conecte</p>
+      <h2 class="outro-title">A próxima<br/>aventura <em>começa aqui.</em></h2>
+      <p class="outro-sub">Estamos finalizando os últimos detalhes. Chega junto — fala com a gente, tira dúvida, manda ideia.</p>
+
+      <div class="channels">
+        <div class="channel">
+          <p class="channel-label">E-mail</p>
+          <p class="channel-value"><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></p>
+        </div>
+        <div class="channel">
+          <p class="channel-label">Telefone</p>
+          <p class="channel-value"><a href="tel:+5521972847653">+55 21 97284-7653</a></p>
+        </div>
+        <div class="channel">
+          <p class="channel-label">WhatsApp</p>
+          <p class="channel-value"><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">+55 21 97284-7653</a></p>
+        </div>
+      </div>
+
+      <p class="signoff">Pura Vida.</p>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
   <footer>
-    <ul class="footer-links">
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="suporte.html">Suporte</a></li>
-      <li><a href="privacy.html">Privacidade</a></li>
-      <li><a href="delete-account.html">Exclusão de conta</a></li>
-      <li><a href="csae-policy.html">Política CSAE</a></li>
-    </ul>
-    <div class="footer-right">
-      <span class="footer-company">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40</span>
-      <span class="footer-copy">&copy; 2026 Sabina</span>
+    <div class="footer-row">
+      <ul class="footer-links">
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="privacy.html">Privacidade</a></li>
+        <li><a href="delete-account.html">Excluir conta</a></li>
+        <li><a href="csae-policy.html">CSAE</a></li>
+      </ul>
+      <span class="footer-meta">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40 · &copy; 2026</span>
     </div>
   </footer>
 
