@@ -5,163 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suporte — Sabina</title>
   <meta name="description" content="Canais oficiais de suporte e contato da Sabina." />
+  <meta name="theme-color" content="#F7F4EF" />
+  <link rel="icon" href="assets/logo-dark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --cream: #F7F4EF;
+      --cream-soft: #EFEAE0;
       --ink: #1A1714;
       --stone: #8C8680;
-      --accent: #2D3A2E;
       --rule: rgba(26,23,20,0.12);
+      --pink: #E94B7C;
+      --magenta: #B6418E;
+      --purple: #6B3FA0;
+      --indigo: #3D52B3;
+      --night: #0F1024;
     }
+
+    html { scroll-behavior: smooth; }
+
     body {
       background: var(--cream);
       color: var(--ink);
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 48px;
     }
+
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 100;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-    .bg-hex {
-      position: fixed;
-      right: -60px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 480px;
+      z-index: 200;
       opacity: 0.04;
-      pointer-events: none;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    header {
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+    }
+
+    /* ── HEADER ── */
+    header.top-nav {
+      padding: 32px clamp(24px, 5vw, 64px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
     }
-    .logo {
+    .logo-link img { height: 24px; width: auto; display: block; }
+    .nav {
       display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: var(--ink);
+      gap: clamp(16px, 2.4vw, 28px);
+      list-style: none;
     }
-    .logo svg { width: 28px; height: 32px; }
-    .wordmark {
-      font-size: 16px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-    .back {
+    .nav a {
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--stone);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .back:hover { color: var(--ink); }
+    .nav a.active { color: var(--ink); }
+    .nav a:hover { color: var(--ink); }
 
-    main {
-      max-width: 540px;
+    /* ── HERO PAGE ── */
+    .page-hero {
+      padding: clamp(60px, 10vh, 120px) 0 clamp(40px, 6vh, 80px);
     }
     .page-label {
       font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    h1.page-title {
+      font-size: clamp(44px, 7vw, 96px);
+      font-weight: 200;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+    }
+    h1.page-title em {
+      font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(135deg, var(--pink), var(--magenta), var(--purple), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .page-lead {
+      margin-top: 32px;
+      font-size: clamp(17px, 1.8vw, 22px);
+      line-height: 1.55;
+      color: var(--ink);
+      max-width: 620px;
+    }
+
+    /* ── BLOCKS ── */
+    .section {
+      padding: clamp(48px, 8vh, 96px) 0;
+      border-top: 1px solid var(--rule);
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    .section h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 200;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+      max-width: 16ch;
+    }
+    .section p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      max-width: 620px;
+      margin-bottom: 14px;
+    }
+    .section p.muted { color: var(--stone); }
+    .section a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .section a:hover { border-color: var(--ink); }
+
+    /* ── CHANNELS ── */
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      max-width: 920px;
+      margin-top: 8px;
+    }
+    .channel {
+      padding: 24px 22px;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      background: #FFFFFF;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .channel:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+    .channel-label {
+      font-size: 10px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--stone);
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 300;
-      line-height: 1.05;
       margin-bottom: 12px;
-    }
-    h1 em { font-style: italic; color: var(--accent); }
-    .lede {
-      font-size: 18px;
-      color: var(--stone);
-      line-height: 1.6;
-      margin-bottom: 56px;
-      max-width: 480px;
-    }
-
-    .block {
-      border-top: 1px solid var(--rule);
-      padding: 32px 0;
-    }
-    .block h2 {
-      font-size: 20px;
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      margin-bottom: 14px;
-    }
-    .block p {
-      font-size: 16px;
-      color: var(--stone);
-      line-height: 1.8;
-      margin-bottom: 12px;
-    }
-    .block p:last-child { margin-bottom: 0; }
-    .block a {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      transition: border-color 0.2s;
-    }
-    .block a:hover { border-color: var(--ink); }
-
-    .channel {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding: 14px 0;
-    }
-    .channel-label {
-      width: 100px;
-      flex-shrink: 0;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--stone);
-    }
-    .channel-value {
-      font-size: 18px;
-      color: var(--ink);
     }
     .channel-value a {
       color: var(--ink);
+      font-size: 17px;
       text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      transition: border-color 0.2s;
+      letter-spacing: -0.005em;
+      border-bottom: none;
     }
-    .channel-value a:hover { border-color: var(--ink); }
+    .channel-value a:hover {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-    .company-block {
-      margin-top: 32px;
-      padding-top: 32px;
+    /* ── COMPANY BLOCK ── */
+    .company {
+      margin-top: 24px;
+      padding: 32px 0 0;
       border-top: 1px solid var(--rule);
     }
     .company-name {
-      font-size: 14px;
-      letter-spacing: 0.12em;
+      font-size: 13px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink);
-      margin-bottom: 8px;
+      font-weight: 500;
+      margin-bottom: 10px;
     }
     .company-detail {
       font-size: 14px;
@@ -169,125 +208,118 @@
       line-height: 1.7;
     }
 
+    /* ── FOOTER ── */
     footer {
+      padding: 32px clamp(24px, 5vw, 64px);
+      background: var(--night);
+      color: rgba(255,255,255,0.55);
+      margin-top: clamp(60px, 10vh, 120px);
+    }
+    .footer-row {
+      max-width: 1280px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
     }
     .footer-links {
       display: flex;
-      gap: 28px;
+      gap: clamp(14px, 2.4vw, 28px);
       list-style: none;
       flex-wrap: wrap;
     }
     .footer-links a {
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-size: 10px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--stone);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-copy {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--stone);
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer-meta {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
     }
 
-    @media (max-width: 600px) {
-      body { padding: 28px 24px; }
-      .channel { flex-direction: column; gap: 4px; align-items: flex-start; }
-      .channel-label { width: auto; }
-      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    @media (max-width: 720px) {
+      header.top-nav { padding: 22px 20px; }
+      .nav { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <svg class="bg-hex" viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-    <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="1.2" stroke-linecap="round"/>
-    <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-  </svg>
-
-  <header>
-    <a href="index.html" class="logo">
-      <svg viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
-        <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-      </svg>
-      <span class="wordmark">Sabina</span>
-    </a>
-    <a href="index.html" class="back">← Voltar</a>
+  <header class="top-nav">
+    <a href="index.html" class="logo-link"><img src="assets/logo-dark.png" alt="Sabina" /></a>
+    <ul class="nav">
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="suporte.html" class="active">Suporte</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
   </header>
 
-  <main>
-    <p class="page-label">Suporte</p>
-    <h1>Fale com a <em>Sabina.</em></h1>
-    <p class="lede">Estamos aqui pra ajudar com qualquer dúvida sobre o aplicativo, sua conta ou seus pagamentos. Respondemos em até 2 dias úteis.</p>
+  <main class="wrap">
 
-    <div class="block">
-      <h2>Canais de atendimento</h2>
+    <section class="page-hero">
+      <p class="page-label">Suporte</p>
+      <h1 class="page-title">Fale com a <em>Sabina.</em></h1>
+      <p class="page-lead">Estamos aqui pra ajudar com qualquer dúvida sobre o aplicativo, sua conta ou seus pagamentos. Respondemos em até 2 dias úteis.</p>
+    </section>
 
-      <div class="channel">
-        <span class="channel-label">E-mail</span>
-        <span class="channel-value"><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></span>
+    <section class="section">
+      <p class="section-eyebrow">Canais de atendimento</p>
+      <div class="channels">
+        <div class="channel">
+          <p class="channel-label">E-mail</p>
+          <p class="channel-value"><a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></p>
+        </div>
+        <div class="channel">
+          <p class="channel-label">Telefone · WhatsApp</p>
+          <p class="channel-value"><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">+55 21 97284-7653</a></p>
+        </div>
       </div>
+    </section>
 
-      <div class="channel">
-        <span class="channel-label">Telefone</span>
-        <span class="channel-value"><a href="tel:+5521972847653">+55 21 97284-7653</a></span>
-      </div>
+    <section class="section">
+      <p class="section-eyebrow">O que podemos resolver</p>
+      <p class="muted">Dúvidas sobre o app · Problemas de login ou cadastro · Cancelamento de assinatura ou eventos · Reembolsos · Solicitação de exclusão de conta · Reportar bugs ou comportamento inadequado · Privacidade e proteção de dados.</p>
+    </section>
 
-      <div class="channel">
-        <span class="channel-label">WhatsApp</span>
-        <span class="channel-value"><a href="https://wa.me/5521972847653" target="_blank" rel="noopener">+55 21 97284-7653</a></span>
-      </div>
-    </div>
-
-    <div class="block">
-      <h2>O que podemos resolver</h2>
-      <p>Dúvidas sobre o app · Problemas de login ou cadastro · Cancelamento de assinatura ou eventos · Reembolsos · Solicitação de exclusão de conta · Reportar bugs ou comportamento inadequado · Privacidade e proteção de dados.</p>
-    </div>
-
-    <div class="block">
-      <h2>Recursos rápidos</h2>
+    <section class="section">
+      <p class="section-eyebrow">Recursos rápidos</p>
       <p>
         <a href="privacy.html">Política de Privacidade</a> ·
         <a href="delete-account.html">Excluir minha conta</a> ·
         <a href="csae-policy.html">Política CSAE</a>
       </p>
-    </div>
 
-    <div class="company-block">
-      <p class="company-name">DATAX TECNOLOGIA LTDA</p>
-      <p class="company-detail">
-        CNPJ 47.237.133/0001-40<br/>
-        Rua Uruaçu, 432 — Rio de Janeiro/RJ<br/>
-        CEP 21921-600
-      </p>
-    </div>
+      <div class="company">
+        <p class="company-name">DATAX TECNOLOGIA LTDA</p>
+        <p class="company-detail">
+          CNPJ 47.237.133/0001-40<br/>
+          Rua Uruaçu, 432 — Rio de Janeiro/RJ · CEP 21921-600
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <ul class="footer-links">
-      <li><a href="privacy.html">Privacidade</a></li>
-      <li><a href="delete-account.html">Exclusão de conta</a></li>
-      <li><a href="csae-policy.html">CSAE</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="suporte.html">Suporte</a></li>
-    </ul>
-    <span class="footer-copy">&copy; 2026 Sabina</span>
+    <div class="footer-row">
+      <ul class="footer-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="privacy.html">Privacidade</a></li>
+        <li><a href="delete-account.html">Excluir conta</a></li>
+        <li><a href="csae-policy.html">CSAE</a></li>
+      </ul>
+      <span class="footer-meta">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40 · &copy; 2026</span>
+    </div>
   </footer>
 
 </body>
