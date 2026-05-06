@@ -3,148 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política Contra CSAE — Sabina</title>
+  <title>Política CSAE — Sabina</title>
+  <meta name="description" content="Política contra Abuso e Exploração Sexual Infantil (CSAE) da Sabina." />
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="assets/logo-dark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream: #F7F4EF;
+      --cream: #FFFFFF;
       --ink: #1A1714;
       --stone: #8C8680;
-      --accent: #2D3A2E;
       --rule: rgba(26,23,20,0.12);
-      --danger: #8B2635;
+      --pink: #E94B7C;
+      --magenta: #B6418E;
+      --purple: #6B3FA0;
+      --indigo: #3D52B3;
+      --night: #0F1024;
+      --danger: #B5253B;
     }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--cream);
       color: var(--ink);
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 48px;
     }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
 
-    header {
+    header.top-nav {
+      padding: 32px clamp(24px, 5vw, 64px);
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 48px;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
     }
-    header svg { width: 28px; height: 32px; }
-    .wordmark { font-size: 16px; letter-spacing: 0.24em; text-transform: uppercase; }
-    .wordmark a { color: var(--ink); text-decoration: none; }
-
-    .back-link {
-      display: inline-block;
-      font-size: 13px;
-      letter-spacing: 0.18em;
+    .logo-link img { height: 24px; width: auto; display: block; }
+    .nav { display: flex; gap: clamp(16px, 2.4vw, 28px); list-style: none; }
+    .nav a {
+      font-size: 11px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--stone);
       text-decoration: none;
-      margin-bottom: 24px;
       transition: color 0.2s;
     }
-    .back-link:hover { color: var(--ink); }
+    .nav a:hover { color: var(--ink); }
 
-    h1 {
-      font-size: clamp(28px, 4vw, 42px);
+    .page-hero { padding: clamp(60px, 10vh, 120px) 0 clamp(40px, 6vh, 80px); }
+    .page-label {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    h1.page-title {
+      font-size: clamp(36px, 5.5vw, 76px);
+      font-weight: 200;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+    h1.page-title em {
+      font-style: italic;
       font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 32px;
+      background: linear-gradient(135deg, var(--pink), var(--magenta), var(--purple), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .page-lead {
+      margin-top: 24px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 620px;
     }
 
-    .content { max-width: 680px; margin-bottom: 48px; }
-
-    h2 {
-      font-size: 22px;
-      font-weight: 300;
-      margin-top: 32px;
-      margin-bottom: 12px;
-      color: var(--accent);
+    .section {
+      padding: clamp(36px, 6vh, 72px) 0;
+      border-top: 1px solid var(--rule);
+      max-width: 720px;
     }
+    .section h2 {
+      font-size: clamp(20px, 1.8vw, 24px);
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section p, .section li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .section ul { padding-left: 20px; margin-bottom: 12px; }
+    .section li { margin-bottom: 6px; }
+    .section a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .section a:hover { border-color: var(--ink); }
+    .section strong { font-weight: 500; }
 
-    p, li { font-size: 18px; line-height: 1.7; margin-bottom: 12px; }
-    ul { padding-left: 24px; margin-bottom: 16px; }
-    li { margin-bottom: 8px; }
-    strong { font-weight: 600; }
-
-    .highlight {
-      background: rgba(139, 38, 53, 0.08);
+    .callout {
+      margin: 20px 0;
+      padding: 18px 22px;
       border-left: 3px solid var(--danger);
-      padding: 16px 20px;
+      background: rgba(181,37,59,0.05);
       border-radius: 4px;
-      margin: 24px 0;
     }
-    .highlight p { margin-bottom: 0; }
-
-    a { color: var(--accent); text-decoration: underline; }
+    .callout p { margin-bottom: 0; }
 
     footer {
+      padding: 32px clamp(24px, 5vw, 64px);
+      background: var(--night);
+      color: rgba(255,255,255,0.55);
+      margin-top: clamp(60px, 10vh, 120px);
+    }
+    .footer-row {
+      max-width: 1280px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--rule);
-      padding-top: 24px;
-      margin-top: 48px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
-    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links {
+      display: flex;
+      gap: clamp(14px, 2.4vw, 28px);
+      list-style: none;
+      flex-wrap: wrap;
+    }
     .footer-links a {
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-size: 10px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--stone);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
+      transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
-    .footer-company { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
-    .footer-copy { font-size: 11px; letter-spacing: 0.1em; color: var(--stone); }
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer-meta {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
+    }
 
-    @media (max-width: 600px) {
-      body { padding: 28px 24px; }
-      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    @media (max-width: 720px) {
+      header.top-nav { padding: 22px 20px; }
+      .nav { display: none; }
     }
   </style>
 </head>
 <body>
+  <header class="top-nav">
+    <a href="index.html" class="logo-link"><img src="assets/logo-dark.png" alt="Sabina" /></a>
+    <ul class="nav">
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="suporte.html">Suporte</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+  </header>
 
-  <div>
-    <header>
-      <svg viewBox="0 0 195 219" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M97.5 1.5L193.5 55.5V163.5L97.5 217.5L1.5 163.5V55.5L97.5 1.5Z" stroke="#1A1714" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M23.5 117.5H168.5" stroke="#1A1714" stroke-width="2.5"/>
-        <path d="M154.5 104.5L170.5 117.981" stroke="#1A1714" stroke-width="2.5"/>
-        <path d="M154.5 130.5L170.5 117.019" stroke="#1A1714" stroke-width="2.5"/>
-        <path d="M48.2507 134.099L69.5618 94.5" stroke="#1A1714" stroke-width="2.5"/>
-        <path d="M90.5 134.099L69.1889 94.5" stroke="#1A1714" stroke-width="2.5"/>
-        <path d="M74.5 134.099L107.287 57.5" stroke="#1A1714" stroke-width="2.5"/>
-        <path d="M139.5 134.099L106.713 57.5" stroke="#1A1714" stroke-width="2.5"/>
-      </svg>
-      <span class="wordmark"><a href="index.html">Sabina</a></span>
-    </header>
+  <main class="wrap">
+    <section class="page-hero">
+      <p class="page-label">Legal · Segurança</p>
+      <h1 class="page-title">Política contra abuso e exploração <em>sexual infantil.</em></h1>
+      <p class="page-lead">A Sabina, desenvolvida pela DATAX TECNOLOGIA LTDA, adota tolerância zero contra qualquer forma de CSAE (Child Sexual Abuse and Exploitation).</p>
+    </section>
 
-    <a href="index.html" class="back-link">← Voltar</a>
-
-    <div class="content">
-      <h1>Política Contra Abuso e Exploração Sexual Infantil (CSAE)</h1>
-
-      <p>O aplicativo <strong>Sabina</strong>, desenvolvido por <strong>DATAX TECNOLOGIA LTDA</strong>, adota uma política de <strong>tolerância zero</strong> contra qualquer forma de abuso ou exploração sexual infantil (CSAE — Child Sexual Abuse and Exploitation).</p>
-
-      <div class="highlight">
-        <p><strong>Tolerância zero:</strong> Qualquer conteúdo, comportamento ou atividade que envolva abuso, exploração ou dano a crianças é estritamente proibido no Sabina e será imediatamente removido, com reporte às autoridades competentes.</p>
+    <section class="section">
+      <div class="callout">
+        <p><strong>Tolerância zero.</strong> Qualquer conteúdo, comportamento ou atividade que envolva abuso, exploração ou dano a crianças é estritamente proibido na Sabina e será imediatamente removido, com reporte às autoridades competentes.</p>
       </div>
+    </section>
 
+    <section class="section">
       <h2>Nosso compromisso</h2>
       <p>A Sabina está comprometida com a segurança de todos os usuários, especialmente crianças e adolescentes. Seguimos os padrões globais contra CSAE e colaboramos com autoridades para combater esse tipo de crime.</p>
+    </section>
 
+    <section class="section">
       <h2>Conteúdo proibido</h2>
-      <p>É estritamente proibido no Sabina:</p>
       <ul>
         <li>Qualquer imagem, vídeo ou texto que retrate abuso ou exploração sexual de menores</li>
         <li>Grooming (tentativas de criar laços emocionais com menores para fins de abuso)</li>
@@ -152,60 +200,54 @@
         <li>Conteúdo que sexualize menores de qualquer forma</li>
         <li>Contato inapropriado com menores por adultos</li>
       </ul>
+    </section>
 
+    <section class="section">
       <h2>Medidas de prevenção</h2>
       <ul>
-        <li><strong>Idade mínima:</strong> O Sabina exige que os usuários tenham <strong>13 anos ou mais</strong> para criar uma conta.</li>
-        <li><strong>Moderação de conteúdo:</strong> Todo conteúdo publicado passa por revisão automática e manual para detectar violações.</li>
-        <li><strong>Denúncia facilitada:</strong> Qualquer usuário pode denunciar conteúdo ou comportamento suspeito diretamente pelo app ou por e-mail.</li>
-        <li><strong>Banimento imediato:</strong> Contas que violem esta política são permanentemente banidas e reportadas às autoridades.</li>
+        <li><strong>Idade mínima:</strong> 13 anos ou mais para criar uma conta.</li>
+        <li><strong>Moderação:</strong> revisão automática e manual de conteúdo publicado.</li>
+        <li><strong>Denúncia facilitada:</strong> qualquer usuário pode denunciar conteúdo ou comportamento suspeito pelo app ou por e-mail.</li>
+        <li><strong>Banimento imediato:</strong> contas que violem esta política são permanentemente banidas e reportadas às autoridades.</li>
       </ul>
+    </section>
 
+    <section class="section">
       <h2>Como denunciar</h2>
-      <p>Se você encontrar conteúdo ou comportamento que viole esta política:</p>
       <ul>
-        <li><strong>Pelo app:</strong> Use o botão de denúncia em posts ou perfis suspeitos.</li>
-        <li><strong>Por e-mail:</strong> Envie para <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a> com o assunto "Denúncia CSAE".</li>
+        <li><strong>Pelo app:</strong> botão de denúncia em posts ou perfis suspeitos.</li>
+        <li><strong>Por e-mail:</strong> <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a> com o assunto "Denúncia CSAE".</li>
       </ul>
       <p>Todas as denúncias são tratadas com <strong>prioridade máxima e confidencialidade</strong>. Respondemos em até 24 horas.</p>
+    </section>
 
+    <section class="section">
       <h2>Cooperação com autoridades</h2>
-      <p>A Sabina coopera integralmente com:</p>
       <ul>
         <li><strong>Autoridades policiais brasileiras</strong> (Polícia Federal, Polícia Civil)</li>
-        <li><strong>SaferNet Brasil</strong> — <a href="https://new.safernet.org.br" target="_blank">new.safernet.org.br</a></li>
-        <li><strong>National Center for Missing & Exploited Children (NCMEC)</strong> — <a href="https://www.missingkids.org" target="_blank">missingkids.org</a></li>
-        <li><strong>Disque 100</strong> (denúncias de violação de direitos humanos no Brasil)</li>
+        <li><strong>SaferNet Brasil</strong> — <a href="https://new.safernet.org.br" target="_blank" rel="noopener">new.safernet.org.br</a></li>
+        <li><strong>NCMEC</strong> — <a href="https://www.missingkids.org" target="_blank" rel="noopener">missingkids.org</a></li>
       </ul>
+    </section>
 
-      <h2>Padrões externos seguidos</h2>
-      <p>A Sabina adota os padrões internacionais de combate ao CSAE estabelecidos por:</p>
-      <ul>
-        <li><strong>Tech Coalition</strong> — coalizão global de empresas de tecnologia contra CSAE: <a href="https://www.technologycoalition.org" target="_blank">technologycoalition.org</a></li>
-        <li><strong>Internet Watch Foundation (IWF)</strong> — <a href="https://www.iwf.org.uk" target="_blank">iwf.org.uk</a></li>
-        <li><strong>INHOPE</strong> — rede internacional de hotlines contra CSAM: <a href="https://www.inhope.org" target="_blank">inhope.org</a></li>
-      </ul>
-
+    <section class="section">
       <h2>Contato</h2>
-      <p>Para denúncias, dúvidas ou solicitações relacionadas a esta política, entre em contato:</p>
-      <p><strong>E-mail:</strong> <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a><br>
-      <strong>Empresa:</strong> DATAX TECNOLOGIA LTDA</p>
-    </div>
-  </div>
+      <p>Denúncias e dúvidas: <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></p>
+    </section>
+  </main>
 
   <footer>
-    <ul class="footer-links">
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="suporte.html">Suporte</a></li>
-      <li><a href="privacy.html">Privacidade</a></li>
-      <li><a href="delete-account.html">Exclusão de conta</a></li>
-      <li><a href="csae-policy.html">Política CSAE</a></li>
-    </ul>
-    <div class="footer-right">
-      <span class="footer-company">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40</span>
-      <span class="footer-copy">&copy; 2026 Sabina</span>
+    <div class="footer-row">
+      <ul class="footer-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="privacy.html">Privacidade</a></li>
+        <li><a href="delete-account.html">Excluir conta</a></li>
+        <li><a href="csae-policy.html">CSAE</a></li>
+      </ul>
+      <span class="footer-meta">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40 · &copy; 2026</span>
     </div>
   </footer>
-
 </body>
 </html>

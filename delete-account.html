@@ -3,195 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exclusão de Conta — Sabina</title>
+  <title>Exclusão de conta — Sabina</title>
+  <meta name="description" content="Como solicitar a exclusão da sua conta Sabina." />
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="assets/logo-dark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream: #F7F4EF;
+      --cream: #FFFFFF;
       --ink: #1A1714;
       --stone: #8C8680;
-      --accent: #2D3A2E;
       --rule: rgba(26,23,20,0.12);
+      --pink: #E94B7C;
+      --magenta: #B6418E;
+      --purple: #6B3FA0;
+      --indigo: #3D52B3;
+      --night: #0F1024;
     }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--cream);
       color: var(--ink);
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 48px;
     }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
 
-    header {
+    header.top-nav {
+      padding: 32px clamp(24px, 5vw, 64px);
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 48px;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
     }
-    header svg { width: 28px; height: 32px; }
-    .wordmark {
-      font-size: 16px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-    .wordmark a { color: var(--ink); text-decoration: none; }
-
-    .back-link {
-      display: inline-block;
-      font-size: 13px;
-      letter-spacing: 0.18em;
+    .logo-link img { height: 24px; width: auto; display: block; }
+    .nav { display: flex; gap: clamp(16px, 2.4vw, 28px); list-style: none; }
+    .nav a {
+      font-size: 11px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--stone);
       text-decoration: none;
-      margin-bottom: 24px;
       transition: color 0.2s;
     }
-    .back-link:hover { color: var(--ink); }
+    .nav a:hover { color: var(--ink); }
 
-    h1 {
-      font-size: clamp(28px, 4vw, 42px);
+    .page-hero { padding: clamp(60px, 10vh, 120px) 0 clamp(40px, 6vh, 80px); }
+    .page-label {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    h1.page-title {
+      font-size: clamp(44px, 7vw, 96px);
+      font-weight: 200;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+    }
+    h1.page-title em {
+      font-style: italic;
       font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 32px;
+      background: linear-gradient(135deg, var(--pink), var(--magenta), var(--purple), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .page-lead {
+      margin-top: 24px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 620px;
     }
 
-    .content {
-      max-width: 680px;
-      margin-bottom: 48px;
+    .section {
+      padding: clamp(36px, 6vh, 72px) 0;
+      border-top: 1px solid var(--rule);
+      max-width: 720px;
     }
-
-    h2 {
-      font-size: 22px;
-      font-weight: 300;
-      margin-top: 32px;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-
-    p, li {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-
-    ul {
-      padding-left: 24px;
+    .section h2 {
+      font-size: clamp(20px, 1.8vw, 24px);
+      font-weight: 500;
+      line-height: 1.3;
       margin-bottom: 16px;
     }
-
-    li {
-      margin-bottom: 8px;
+    .section p, .section li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 10px;
     }
-
-    strong {
-      font-weight: 600;
+    .section ul { padding-left: 20px; margin-bottom: 12px; }
+    .section li { margin-bottom: 6px; }
+    .section a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
     }
+    .section a:hover { border-color: var(--ink); }
+    .section strong { font-weight: 500; }
 
-    .highlight {
-      background: rgba(45, 58, 46, 0.08);
-      border-left: 3px solid var(--accent);
-      padding: 16px 20px;
+    .callout {
+      margin: 20px 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--purple);
+      background: rgba(107,63,160,0.04);
       border-radius: 4px;
-      margin: 24px 0;
     }
-
-    .highlight p {
-      margin-bottom: 0;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: underline;
-    }
+    .callout p { margin-bottom: 0; }
 
     footer {
+      padding: 32px clamp(24px, 5vw, 64px);
+      background: var(--night);
+      color: rgba(255,255,255,0.55);
+      margin-top: clamp(60px, 10vh, 120px);
+    }
+    .footer-row {
+      max-width: 1280px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--rule);
-      padding-top: 24px;
-      margin-top: 48px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
     .footer-links {
       display: flex;
-      gap: 28px;
+      gap: clamp(14px, 2.4vw, 28px);
       list-style: none;
+      flex-wrap: wrap;
     }
     .footer-links a {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--stone);
-      text-decoration: none;
-    }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-    .footer-company {
       font-size: 10px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
     }
-    .footer-copy {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--stone);
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer-meta {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
     }
 
-    @media (max-width: 600px) {
-      body { padding: 28px 24px; }
-      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    @media (max-width: 720px) {
+      header.top-nav { padding: 22px 20px; }
+      .nav { display: none; }
     }
   </style>
 </head>
 <body>
+  <header class="top-nav">
+    <a href="index.html" class="logo-link"><img src="assets/logo-dark.png" alt="Sabina" /></a>
+    <ul class="nav">
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="suporte.html">Suporte</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+  </header>
 
-  <div>
-    <header>
-      <svg viewBox="0 0 200 215" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 100 24 L 169 64 L 169 144 L 100 184 L 31 144 L 31 64 Z" stroke="#1A1714" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
-        <line x1="67" y1="131" x2="82" y2="76" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="82" y1="76" x2="97" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="93" y1="131" x2="116" y2="58" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="116" y1="58" x2="143" y2="131" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="46" y1="114" x2="155" y2="114" stroke="#1A1714" stroke-width="3.5" stroke-linecap="round"/>
-        <polyline points="144,104 155,114 144,124" stroke="#1A1714" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-      </svg>
-      <span class="wordmark"><a href="index.html">Sabina</a></span>
-    </header>
+  <main class="wrap">
+    <section class="page-hero">
+      <p class="page-label">Legal</p>
+      <h1 class="page-title">Excluir <em>conta.</em></h1>
+      <p class="page-lead">Você pode solicitar a exclusão completa da sua conta e dos seus dados pessoais a qualquer momento.</p>
+    </section>
 
-    <a href="index.html" class="back-link">← Voltar</a>
-
-    <div class="content">
-      <h1>Exclusão de Conta e Dados</h1>
-
-      <p>O aplicativo <strong>Sabina</strong>, desenvolvido por <strong>DATAX TECNOLOGIA LTDA</strong>, permite que qualquer usuário solicite a exclusão completa da sua conta e dados pessoais.</p>
-
-      <h2>Como solicitar a exclusão</h2>
+    <section class="section">
+      <h2>Como solicitar</h2>
       <p>Você pode solicitar a exclusão da sua conta de duas formas:</p>
-
       <ul>
-        <li><strong>Pelo app:</strong> Acesse <strong>Perfil → Sair do app</strong> e entre em contato solicitando a exclusão.</li>
-        <li><strong>Por e-mail:</strong> Envie um e-mail para <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a> com o assunto "Exclusão de conta" informando o e-mail cadastrado no app.</li>
+        <li><strong>Pelo app:</strong> acesse <strong>Perfil → Suporte</strong> e solicite a exclusão.</li>
+        <li><strong>Por e-mail:</strong> envie para <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a> com o assunto "Exclusão de conta", informando o e-mail cadastrado.</li>
       </ul>
+    </section>
 
+    <section class="section">
       <h2>Prazo de processamento</h2>
-      <p>Sua solicitação será processada em até <strong>7 dias úteis</strong> após o recebimento.</p>
+      <p>Sua solicitação é processada em até <strong>7 dias úteis</strong> após o recebimento.</p>
+    </section>
 
-      <h2>Dados que serão excluídos</h2>
-      <p>Ao solicitar a exclusão, os seguintes dados serão permanentemente removidos:</p>
+    <section class="section">
+      <h2>Dados removidos</h2>
       <ul>
         <li>Informações do perfil (nome, username, foto, bio, localização)</li>
         <li>Experiências registradas e publicações no feed</li>
@@ -201,35 +204,38 @@
         <li>Fotos enviadas ao aplicativo</li>
         <li>Dados de autenticação (e-mail e senha)</li>
       </ul>
+    </section>
 
-      <h2>Dados que podem ser retidos</h2>
+    <section class="section">
+      <h2>Dados retidos</h2>
       <ul>
-        <li><strong>Registros de transações financeiras:</strong> dados de pagamento de eventos podem ser retidos por até 5 anos para cumprimento de obrigações fiscais e legais.</li>
-        <li><strong>Logs de segurança:</strong> registros anonimizados de acesso podem ser mantidos por até 6 meses para fins de segurança.</li>
+        <li><strong>Registros de transações financeiras:</strong> dados de pagamento podem ser retidos por até 5 anos para cumprimento de obrigações fiscais e legais.</li>
+        <li><strong>Logs de segurança:</strong> registros anonimizados de acesso podem ser mantidos por até 6 meses.</li>
       </ul>
 
-      <div class="highlight">
-        <p><strong>Importante:</strong> A exclusão da conta é irreversível. Todos os dados listados acima serão permanentemente removidos e não poderão ser recuperados.</p>
+      <div class="callout">
+        <p><strong>Importante.</strong> A exclusão da conta é irreversível. Os dados removidos não podem ser recuperados.</p>
       </div>
+    </section>
 
+    <section class="section">
       <h2>Contato</h2>
-      <p>Em caso de dúvidas sobre a exclusão de dados, entre em contato pelo e-mail <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a>.</p>
-    </div>
-  </div>
+      <p>Dúvidas sobre exclusão de dados: <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></p>
+    </section>
+  </main>
 
   <footer>
-    <ul class="footer-links">
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="suporte.html">Suporte</a></li>
-      <li><a href="privacy.html">Privacidade</a></li>
-      <li><a href="delete-account.html">Exclusão de conta</a></li>
-      <li><a href="csae-policy.html">CSAE</a></li>
-    </ul>
-    <div class="footer-right">
-      <span class="footer-company">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40</span>
-      <span class="footer-copy">&copy; 2026 Sabina</span>
+    <div class="footer-row">
+      <ul class="footer-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="privacy.html">Privacidade</a></li>
+        <li><a href="delete-account.html">Excluir conta</a></li>
+        <li><a href="csae-policy.html">CSAE</a></li>
+      </ul>
+      <span class="footer-meta">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40 · &copy; 2026</span>
     </div>
   </footer>
-
 </body>
 </html>
