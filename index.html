@@ -276,10 +276,24 @@
 
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: 1fr;
       gap: 1px;
       background: var(--rule);
       border: 1px solid var(--rule);
+    }
+    @media (min-width: 720px) {
+      .values-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      .value:nth-child(1),
+      .value:nth-child(2),
+      .value:nth-child(3) {
+        grid-column: span 2;
+      }
+      .value:nth-child(4),
+      .value:nth-child(5) {
+        grid-column: span 3;
+      }
     }
 
     .value {
