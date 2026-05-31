@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Uso — Sabina</title>
+  <meta name="description" content="Termos de Uso da Sabina." />
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="assets/logo-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FFFFFF;
+      --ink: #1A1714;
+      --stone: #8C8680;
+      --rule: rgba(26,23,20,0.12);
+      --pink: #E94B7C;
+      --magenta: #B6418E;
+      --purple: #6B3FA0;
+      --indigo: #3D52B3;
+      --night: #0F1024;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+
+    header.top-nav {
+      padding: 32px clamp(24px, 5vw, 64px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
+    }
+    .logo-link img { height: 24px; width: auto; display: block; }
+    .nav { display: flex; gap: clamp(16px, 2.4vw, 28px); list-style: none; }
+    .nav a {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: var(--ink); }
+
+    .page-hero { padding: clamp(60px, 10vh, 120px) 0 clamp(40px, 6vh, 80px); }
+    .page-label {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 28px;
+    }
+    h1.page-title {
+      font-size: clamp(44px, 7vw, 96px);
+      font-weight: 200;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+    }
+    h1.page-title em {
+      font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(135deg, var(--pink), var(--magenta), var(--purple), var(--indigo));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .last-updated {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--stone);
+      letter-spacing: 0.04em;
+    }
+
+    .section { padding: clamp(20px, 4vh, 32px) 0; border-top: 1px solid var(--rule); }
+    .section h2 {
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+    }
+    .section p, .section li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      max-width: 72ch;
+    }
+    .section p + p { margin-top: 12px; }
+    .section ul { padding-left: 20px; margin-top: 8px; }
+    .section li { margin-bottom: 6px; }
+    .section a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--rule);
+      text-underline-offset: 4px;
+    }
+    .section a:hover { text-decoration-color: var(--ink); }
+    .section strong { font-weight: 500; }
+
+    footer {
+      margin-top: clamp(80px, 12vh, 140px);
+      padding: 40px clamp(24px, 5vw, 64px);
+      border-top: 1px solid var(--rule);
+    }
+    .footer-row {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; list-style: none; }
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-meta {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--stone);
+    }
+
+    @media (max-width: 720px) {
+      header.top-nav { padding: 20px clamp(20px, 5vw, 32px); }
+      .nav { gap: 14px; }
+      .nav a { font-size: 10px; letter-spacing: 0.16em; }
+      .page-hero { padding: 60px 0 32px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <a href="index.html" class="logo-link"><img src="assets/logo-dark.png" alt="Sabina" /></a>
+    <ul class="nav">
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="suporte.html">Suporte</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+  </header>
+
+  <main class="wrap">
+    <section class="page-hero">
+      <p class="page-label">Legal</p>
+      <h1 class="page-title">Termos de <em>Uso.</em></h1>
+      <p class="last-updated">Última atualização · Maio de 2026</p>
+    </section>
+
+    <section class="section">
+      <h2>1. Aceitação</h2>
+      <p>Ao criar uma conta ou usar o aplicativo Sabina, você concorda com estes Termos de Uso e com a nossa <a href="privacy.html">Política de Privacidade</a>. Caso não concorde, não utilize o serviço.</p>
+    </section>
+
+    <section class="section">
+      <h2>2. O que é a Sabina</h2>
+      <p>A Sabina é uma plataforma que conecta aventureiros a experiências em meio à natureza — trilhas, escaladas, travessias e outros eventos físicos — organizadas por anfitriões verificados. A Sabina atua como intermediária entre você e o anfitrião responsável pelo evento.</p>
+    </section>
+
+    <section class="section">
+      <h2>3. Cadastro e conta</h2>
+      <ul>
+        <li>Você precisa ter pelo menos 18 anos para criar uma conta.</li>
+        <li>As informações fornecidas no cadastro devem ser verdadeiras e atualizadas.</li>
+        <li>Você é responsável por manter sua senha em sigilo e por toda atividade realizada na sua conta.</li>
+        <li>A Sabina pode suspender ou encerrar contas que violem estes termos.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>4. Eventos e inscrições</h2>
+      <ul>
+        <li>Os eventos são organizados por anfitriões independentes. A Sabina valida cadastros mas não opera diretamente as atividades.</li>
+        <li>Ao se inscrever em um evento, você concorda com as regras específicas definidas pelo anfitrião (nível, equipamento, ponto de encontro, etc.).</li>
+        <li>O cancelamento e a política de reembolso variam por evento e são informados na inscrição.</li>
+        <li>No-show (não comparecimento) não dá direito a reembolso, salvo casos previstos em lei.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>5. Sabina Pass</h2>
+      <ul>
+        <li>O Sabina Pass é uma assinatura anual que concede crédito trimestral para uso em eventos elegíveis.</li>
+        <li>A cobrança é feita conforme o plano contratado e renovada automaticamente até o cancelamento.</li>
+        <li>O crédito pode ser usado em múltiplos eventos. Saldo residual continua disponível até o próximo trimestre.</li>
+        <li>Após 1 ano sem uso, o saldo anual expira.</li>
+        <li>Crédito Pass não acumula com desconto de membro. No checkout você escolhe um ou outro.</li>
+        <li>Você pode cancelar a assinatura a qualquer momento. O cancelamento entra em vigor ao fim do ciclo vigente.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>6. Pagamentos</h2>
+      <p>Os pagamentos são processados por parceiros externos (Stripe e Mercado Pago). A Sabina não armazena dados de cartão. Os meios disponíveis incluem cartão de crédito e Pix. Tributos eventualmente devidos sobre as transações estão incluídos ou destacados conforme aplicável.</p>
+    </section>
+
+    <section class="section">
+      <h2>7. Riscos das atividades</h2>
+      <p>Atividades em meio à natureza envolvem riscos inerentes. Ao se inscrever em um evento, você declara estar ciente desses riscos e assume a responsabilidade pela sua participação. A Sabina recomenda fortemente a contratação de seguro de aventura e o cumprimento das orientações do anfitrião. Em caso de condições adversas (clima, segurança), o anfitrião pode adiar ou cancelar o evento.</p>
+    </section>
+
+    <section class="section">
+      <h2>8. Conduta na comunidade</h2>
+      <p>Esperamos respeito, segurança e responsabilidade ambiental de todos os participantes. É proibido:</p>
+      <ul>
+        <li>Conteúdo ofensivo, discriminatório, ilegal ou que assedie outros usuários.</li>
+        <li>Uso da plataforma para fins comerciais não autorizados.</li>
+        <li>Tentativas de burlar a segurança ou os mecanismos de pagamento do app.</li>
+        <li>Práticas que danifiquem o meio ambiente ou desrespeitem comunidades locais.</li>
+      </ul>
+      <p>Violações podem resultar em remoção de conteúdo, suspensão ou exclusão da conta.</p>
+    </section>
+
+    <section class="section">
+      <h2>9. Anfitriões</h2>
+      <p>Anfitriões aprovados pela curadoria Sabina são responsáveis pela execução segura dos eventos que oferecem. Termos específicos da relação Sabina-Anfitrião, incluindo repasses e patamares, são definidos em contrato separado de Anfitrião.</p>
+    </section>
+
+    <section class="section">
+      <h2>10. Propriedade intelectual</h2>
+      <p>O nome, a marca, os logotipos e o conteúdo do aplicativo Sabina pertencem à Datax Tecnologia Ltda. Você não pode reproduzir, modificar ou utilizar comercialmente esses elementos sem autorização. Conteúdo gerado por usuários (fotos, posts, avaliações) permanece de propriedade do usuário, mas você concede à Sabina uma licença para exibi-lo no app e em materiais de divulgação.</p>
+    </section>
+
+    <section class="section">
+      <h2>11. Limitação de responsabilidade</h2>
+      <p>A Sabina disponibiliza a plataforma "como está" e empenha-se em mantê-la disponível e segura. Não nos responsabilizamos por: danos decorrentes de atividades dos anfitriões, condições climáticas, acidentes durante as experiências, instabilidades de internet ou de parceiros de pagamento. As limitações aqui descritas observam o que é permitido pela legislação brasileira, em especial o Código de Defesa do Consumidor.</p>
+    </section>
+
+    <section class="section">
+      <h2>12. Suspensão e encerramento</h2>
+      <p>Você pode encerrar sua conta a qualquer momento pela tela de configurações do app ou pela <a href="delete-account.html">página de exclusão de conta</a>. A Sabina pode suspender contas em caso de violação destes termos, atividade fraudulenta, ou exigência legal.</p>
+    </section>
+
+    <section class="section">
+      <h2>13. Alterações dos termos</h2>
+      <p>Estes termos podem ser atualizados periodicamente. Mudanças relevantes serão comunicadas pelo app ou por e-mail. O uso continuado da plataforma após a atualização indica concordância com a nova versão.</p>
+    </section>
+
+    <section class="section">
+      <h2>14. Lei aplicável e foro</h2>
+      <p>Estes termos são regidos pela legislação da República Federativa do Brasil. Fica eleito o foro da comarca da cidade do Rio de Janeiro / RJ para dirimir eventuais litígios, ressalvado o direito do consumidor de optar pelo foro do seu domicílio.</p>
+    </section>
+
+    <section class="section">
+      <h2>15. Contato</h2>
+      <p>Dúvidas sobre estes termos: <a href="mailto:contato@sabina.app.br">contato@sabina.app.br</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-row">
+      <ul class="footer-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="terms.html">Termos</a></li>
+        <li><a href="privacy.html">Privacidade</a></li>
+        <li><a href="delete-account.html">Excluir conta</a></li>
+        <li><a href="csae-policy.html">CSAE</a></li>
+      </ul>
+      <span class="footer-meta">DATAX TECNOLOGIA LTDA · CNPJ 47.237.133/0001-40 · &copy; 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
